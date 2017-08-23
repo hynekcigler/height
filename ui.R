@@ -2,11 +2,11 @@ library(shiny)
 
 shinyUI(pageWithSidebar(
   # Application title
-  headerPanel("Let's measure your height psychologicaly!"),
+  headerPanel("Let's measure your height the way psychologists do!"),
   sidebarPanel(
-    radioButtons("sex", label = "You are:",
+    radioButtons("sex", label = "You are a:",
                  choices = list(man="man", woman="woman")),
-    textInput("height", label = "Your true height is:", value=180, width='150px'),
+    textInput("height", label = "Your true height is (in cm):", value=180, width='180px'),
     selectInput("test", label = "How good is your IQ test?", 
                 choices = list('Bad one (r=.60)' = .60,
                                'Acceptable (r=.70)' = .70,
@@ -16,17 +16,17 @@ shinyUI(pageWithSidebar(
                                )),
     actionButton(inputId="button", label="Let's measure!"),
     HTML("<br><hr><p><i>This simple tool was developed as a joke to illustrate, why it is not a good idea to trust your exact IQ value 
-reported by a psychological tests.<br> 
-Author ot this application is a psychologist engaged in developing psychological tests.</i></p>
+reported by psychological tests.<br> 
+The author ot this tool is a psychologist involved in developing psychological tests.</i></p>
 <p>&copy; 2017 Hynek Cígler<br>
 Department of psychology, Faculty of Social Studies<br>
 Masaryk University, Brno, Czech Republic<br>
-<a href='XX'>Source code on Git-Hub</a></p>")
+<a href='https://github.com/hynekcigler/height' target='_blank'>Source code on GitHub</a></p>")
                 ),
-  mainPanel(h3("Your height is (just now)", textOutput("height", inline=T), "cm, which means", textOutput("IQ", inline=T), 
-               "IQ", "and percetile", textOutput("perc", inline=T), "."),
+  mainPanel(h3("Right now, your height is ", textOutput("height", inline=T), "cm, expressed as an IQ, it is ", 
+               textOutput("IQ", inline=T), "( percentile", textOutput("perc", inline=T), ")."),
             plotOutput("gauss"),
-            h3("Do you want to know what will be your IQ just tomorrow?"),
+            h3("Do you want to know what your height will be at some other time?"),
             h3("Click on the 'Let's measure!' button on the left side!")
     
   ))
