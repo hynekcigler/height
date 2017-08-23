@@ -45,7 +45,12 @@ shinyServer(function(input, output, session) {
   output$gauss <- renderPlot({
     x <- seq(40, 160, by=.01)
     y <- dnorm(x, 100, 15)
-    x2 <- seq(50, staff()[1], by=.01)
+    if (staff()[1] < 50) {
+      by.par <- -.01
+    } else {
+      by.par <- .01
+    }
+    x2 <- seq(50, staff()[1], by=by.par
     
     plot(x, y, type="l", lwd=3, col="darkblue", main="Gauss curve", xlab="intelligence scale (IQ)", ylab="") ##, yaxt="y"
     abline(v=staff()[1], lwd=3, col="red")
