@@ -12,7 +12,7 @@ shinyUI(pageWithSidebar(
                                'Acceptable (r=.70)' = .70,
                                'Enough good (r=.80)' = .80,
                                'Good one (r=.90)' = .90,
-                               'The best one (r=.95)' = .90
+                               'The best one (r=.95)' = .95
                                )),
     actionButton(inputId="button", label="Let's measure!"),
     HTML("<br><hr><p><i>This simple tool was developed as a joke to illustrate, why it is not a good idea to trust your exact IQ value 
