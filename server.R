@@ -50,7 +50,7 @@ shinyServer(function(input, output, session) {
     } else {
       by.par <- .01
     }
-    x2 <- seq(50, staff()[1], by=by.par
+    x2 <- seq(50, staff()[1], by=by.par)
     
     plot(x, y, type="l", lwd=3, col="darkblue", main="Gauss curve", xlab="intelligence scale (IQ)", ylab="") ##, yaxt="y"
     abline(v=staff()[1], lwd=3, col="red")
